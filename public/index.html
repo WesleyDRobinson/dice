@@ -3,21 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Dice for You!</title>
+
+    <!--CSSs-->
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-
+<div id="big-result" hidden></div>
 <h2>Dice for you. Very nice dice!</h2>
-
 <div>
+    <label for="game-time-mode">game time mode</label>
+    <input type="checkbox" id="game-time-mode">
+</div>
+<div id="buttons-box">
     <button name="3" id="3" class="button-die">Three Side</button>
     <button name="4" id="4" class="button-die">Four Side</button>
     <button name="6" id="6" class="button-die">Six Side</button>
     <button name="10" id="10" class="button-die">Ten Side</button>
     <button name="100" id="100" class="button-die">Hundred Side</button>
+    <label for="bonus-die">Bonus Die</label>
+    <input type="checkbox" id="bonus-die">
+    <label for="penalty-die">Penalty Die</label>
+    <input type="checkbox" id="penalty-die">
+</div>
+<div>
+    <input type="">
 </div>
 
 <div id="output"></div>
 
+<div>
+    <p>
+        Be sure to checkout
+        <a href="http://blog.andyjiang.com/cthulhu-investigator-generator/">
+            the companion Investigator stats generator
+        </a>
+        by my dear froend
+        <span id="sp">Sp</span>
+        Andy
+        <span id="jiang">
+        Jiang</span></p>
+    <button name="stranger-things" onclick="toggleDiv('stranger-things')">click this button to see some stranger
+        things
+    </button>
+    <div id="stranger-things" hidden>
+        <button name="NOPE" onclick="toggleDiv('stranger-things')">NOPE close this right now</button>
+        <p>HtmL is funny cuz you can do what every ou want basically. Welcome to the internet feindo!
+            <a href="404.html" id="404">Here's a Link to a 404 page.</a>
+        <p>
+            In my CSC 111 class in 2004 or 5...? it was at Missouri STate, for sure,
+            they were telling us to write emails to
+            people asking if you could linke ther site.
+            "Why don't you prrofa read your writing or correct those mistakes? I know you cn see the gren lines there'
+            <br>
+            very squiggly in your text editor; it is 1475817941041 for crying out loud!
+            <br>
+            <br>
+            <label for="complaints">Please, fren! Enter your complaints here and</label>
+            <textarea id="complaints" placeholder="Really! Type anything your heart desires"
+                      spellcheck="true"></textarea>
+            <label for="complaints">Again you can do wahtever you want in 5RocksofHMTL!
+        </p>
+        <p>i appreciate art and grammar and communication and beautiful code and strange code processing engines</p>
+        <p>and most of all, i appreciate YOU, my friend</p>
+    </div>
+
+</div>
+<!--JavaScripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/2.3.0/superagent.min.js"></script>
 <script src="app.js"></script>
 </body>
