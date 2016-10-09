@@ -36,69 +36,47 @@
 
 <section class="section" id="dice-box">
     <div class="container">
-        <div class="tile is-ancestor">
-            <div class="tile is-vertical">
-                <div class="tile">
-                    <div class="tile is-parent is-vertical">
-                        <div id="d3" class="tile is-child notification is-primary">
-                            3 die
-                        </div>
-                        <div id="d4" class="tile is-child notification is-warning">
-                            4 die
-                        </div>
-                    </div>
-                    <div class="tile is-parent is-vertical">
-                        <div id="d6" class="tile is-child notification is-info">
-                            6 die
-                        </div>
-                        <div class="tile is-child">
-                            <label for="double">double it</label>
-                            <input type="checkbox" id="double">
-                            <label for="triple">triple it</label>
-                            <input type="checkbox" id="triple">
-                        </div>
-                    </div>
-                    <div class="tile is-parent is-vertical">
-                        <div id="d10" class="tile is-child notification is-success">
-                            10 die
-                        </div>
-                        <div class="tile is-child notification is-danger">
-                            <label for="game-mode">game mode</label>
-                            <input type="checkbox" id="game-mode">
-                        </div>
-                    </div>
+        <div class="columns">
+            <div class="column">
+                <div id="d3" class="notification is-primary">d3</div>
+                <div id="d4" class="notification is-info">d4</div>
+            </div>
+            <div class="column">
+                <div id="d6" class="notification is-warning">d6</div>
+                <div>
+                    <label for="double">double it</label>
+                    <input type="checkbox" id="double">
                 </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child notification is-light is-bold">
-                        <label for="penalty-die">Penalty</label>
-                        <input type="checkbox" id="penalty-die">
-                    </div>
-                    <div id="d100" class="tile is-child notification is-primary is-bold">
-                        100 die
-                    </div>
-                    <div class="tile is-child notification is-light is-bold">
-                        <label for="bonus-die">Bonus</label>
-                        <input type="checkbox" id="bonus-die">
-                    </div>
+                <div>
+                    <label for="triple">triple it</label>
+                    <input type="checkbox" id="triple">
                 </div>
-                <div class="tile is-parent">
-                    <div class="tile is-child notification is-dark">
-                        <p>Dice Output</p>
-                        <span id="dice-result"></span>
-                    </div>
-                    <div class="tile is-parent">
-                        <div class="tile is-child notification is-light is-bold">
-                            <label for="add-mode">Add Mode</label>
-                            <input type="checkbox" id="add-mode">
-                            <div id="sum-nums"></div>
-                            <div id="calc">
-                                <label for="free-form">Free form calc</label>
-                                <input type="number" id="free-form">
-                                <input type="radio">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="column">
+                <div id="d10" class="notification is-info">d10</div>
+                <div class="notification is-primary">game mode</div>
+            </div>
+        </div>
+        <div class="columns">
+            <div id="penalty-die" class="column">
+                <label for="penalty-die">Penalty</label>
+                <input type="checkbox" id="penalty-die">
+            </div>
+            <div id="d100" class="column notification is-danger">d100</div>
+            <div id="bonus-die" class="column">
+                <label for="bonus-die">Bonus</label>
+                <input type="checkbox" id="bonus-die">
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <p>Dice Output</p>
+                <span id="dice-result"></span>
+            </div>
+            <div class="column">
+                <label for="add-mode">Add Mode</label>
+                <input type="checkbox" id="add-mode">
+                <div id="sum-nums"></div>
             </div>
         </div>
     </div>
