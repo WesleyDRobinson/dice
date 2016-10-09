@@ -1,28 +1,43 @@
 // logic
 
+// app
 function roll(sides) {
     return Number.isInteger(sides) ? (Math.floor(Math.random() * sides)) + 1 : new TypeError('sides must be an integer');
 }
+function handleDice(e) {
+    var validDice = ['d3', 'd4', 'd6', 'd10', 'd100'];
+    var id = e.target.id;
+    if (!validDice.includes(id)) return;
 
-// app
-var output = document.querySelector('#output');
-document.querySelector('#buttons-box').addEventListener('click', function (e) {
-    var target = e.target;
-    if (target.nodeName !== 'BUTTON') return;
-    var sides = parseInt(target.id);
-    var roll1 = roll(sides);
+    e.preventDefault();
+    var diceResult = document.querySelector('#dice-result');
+    var sides = parseInt(id.match(/\d+/)[0]);
+    var rollResult = roll(sides);
 
     if (sides === 100) {
-        var roll2 = roll(sides);
-        console.log(roll1, roll2);
-        var bonus = document.querySelector('#bonus-die').value;
-        var penalty = get('penalty-die').value;
-        if (penalty) return output.innerHTML = Math.max(roll1, roll2);
-        if (bonus) return output.innerHTML = Math.min(roll1, roll2);
+        var rollResult2 = roll(sides);
+        console.log(rollResult, rollResult2);
+        var bonus = document.querySelector('#bonus-die').checked ? Math.min(rollResult, rollResult2) : false;
+        var penalty = document.querySelector('#penalty-die').checked ? Math.max(rollResult, rollResult2) : false;
     }
 
-    output.innerHTML = roll1;
-});
+    var double = document.querySelector('#double').checked;
+    var triple = document.querySelector('#triple').checked;
+    if (double) rollResult *= 2;
+    if (triple) rollResult *= 3;
+
+    var addMode = document.querySelector('#add-mode').checked;
+    var sumNums = document.querySelector('#sum-nums');
+    sumNums.value = addMode ? sumNums.value += rollResult : null;
+    sumNums.innerHTML = sumNums.value || null;
+
+    if (penalty) { diceResult.innerHTML = penalty }
+    else if (bonus) { diceResult.innerHTML = bonus }
+    else diceResult.innerHTML = rollResult;
+
+    return e;
+}
+document.querySelector('#dice-box').addEventListener('click', handleDice, false);
 
 // API
 var die = parseInt(document.URL.split('#')[1]);
@@ -36,13 +51,6 @@ if (Number.isInteger(die)) {
 //404.js
 
 // helpers
-var get = function get(string) {
-    if (typeof string !== 'string') {
-        get = document.querySelectorAll;
-        return new TypeError('get([string]')
-    }
-    return document.getElementById
-};
 function toggleDiv(divId) {
     var div = document.querySelector('#' + divId);
     div.hidden = !div.hidden;

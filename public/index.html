@@ -1,37 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Dice for You!</title>
 
     <!--CSSs-->
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.1/css/bulma.min.css" type="text/css">
+    <style>
+        div {
+            cursor: default;
+        }
+
+        span#dice-result {
+            display: block;
+            height: 30vh;
+        }
+    </style>
+
 </head>
 <body>
-<div id="big-result" hidden></div>
-<h2>Dice for you. Very nice dice!</h2>
-<div>
-    <label for="game-time-mode">game time mode</label>
-    <input type="checkbox" id="game-time-mode">
-</div>
-<div id="buttons-box">
-    <button name="3" id="3" class="button-die">Three Side</button>
-    <button name="4" id="4" class="button-die">Four Side</button>
-    <button name="6" id="6" class="button-die">Six Side</button>
-    <button name="10" id="10" class="button-die">Ten Side</button>
-    <button name="100" id="100" class="button-die">Hundred Side</button>
-    <label for="bonus-die">Bonus Die</label>
-    <input type="checkbox" id="bonus-die">
-    <label for="penalty-die">Penalty Die</label>
-    <input type="checkbox" id="penalty-die">
-</div>
-<div>
-    <input type="">
-</div>
+<section class="hero is-light">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Dice for you
+            </h1>
+            <h2 class="subtitle">
+                Very nice dice!
+            </h2>
+        </div>
+    </div>
+</section>
 
-<div id="output"></div>
+<section class="section" id="dice-box">
+    <div class="container">
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        <div id="d3" class="tile is-child notification is-primary">
+                            3 die
+                        </div>
+                        <div id="d4" class="tile is-child notification is-warning">
+                            4 die
+                        </div>
+                    </div>
+                    <div class="tile is-parent is-vertical">
+                        <div id="d6" class="tile is-child notification is-info">
+                            6 die
+                        </div>
+                        <div class="tile is-child">
+                            <label for="double">double it</label>
+                            <input type="checkbox" id="double">
+                            <label for="triple">triple it</label>
+                            <input type="checkbox" id="triple">
+                        </div>
+                    </div>
+                    <div class="tile is-parent is-vertical">
+                        <div id="d10" class="tile is-child notification is-success">
+                            10 die
+                        </div>
+                        <div class="tile is-child notification is-danger">
+                            <label for="game-mode">game mode</label>
+                            <input type="checkbox" id="game-mode">
+                        </div>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <div class="tile is-child notification is-light is-bold">
+                        <label for="penalty-die">Penalty</label>
+                        <input type="checkbox" id="penalty-die">
+                    </div>
+                    <div id="d100" class="tile is-child notification is-primary is-bold">
+                        100 die
+                    </div>
+                    <div class="tile is-child notification is-light is-bold">
+                        <label for="bonus-die">Bonus</label>
+                        <input type="checkbox" id="bonus-die">
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <div class="tile is-child notification is-dark">
+                        <p>Dice Output</p>
+                        <span id="dice-result"></span>
+                    </div>
+                    <div class="tile is-parent">
+                        <div class="tile is-child notification is-light is-bold">
+                            <label for="add-mode">Add Mode</label>
+                            <input type="checkbox" id="add-mode">
+                            <div id="sum-nums"></div>
+                            <div id="calc">
+                                <label for="free-form">Free form calc</label>
+                                <input type="number" id="free-form">
+                                <input type="radio">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div>
+<div hidden>
     <p>
         Be sure to checkout
         <a href="http://blog.andyjiang.com/cthulhu-investigator-generator/">
