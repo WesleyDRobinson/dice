@@ -1,6 +1,10 @@
 $(document).ready(function () {
 
     // logic
+    // params:
+    //   side: integer
+    //
+    // returns: pseudo random integer in the range: [1, sides]
     function roll(sides) {
         return Number.isInteger(sides) ? (Math.floor(Math.random() * sides)) + 1 : new TypeError('sides must be an integer');
     }
@@ -17,7 +21,7 @@ $(document).ready(function () {
         var rollResult = roll(sides);
 
         if (sides === 100) {
-            var rollResult2 = roll(sides);
+            var rollResult2 = (roll(10) - 1) * 10 + (rollResult % 10);
             console.log(rollResult, rollResult2);
             var bonus = $('#bonus').hasClass('is-active') ? Math.min(rollResult, rollResult2) : false;
             var penalty = $('#penalty').hasClass('is-active') ? Math.max(rollResult, rollResult2) : false;
@@ -30,7 +34,7 @@ $(document).ready(function () {
 
         var addMode = $('#add-mode').hasClass('is-active');
         var sumNums = document.querySelector('#sum-nums');
-        sumNums.value = 0;
+        sumNums.value = sumNums.value || 0;
         sumNums.value = addMode ? sumNums.value += rollResult : null;
         sumNums.innerHTML = sumNums.value;
 
