@@ -1,115 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>Dice for You!</title>
-
-    <!--CSSs-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.5.2/tachyons.min.css">
 </head>
-<body style="cursor: default">
-<div class="vh-100">
-    <header class="cf h-10 tc pv2 pv3-ns">
-        <span class="f5 f4-ns fw6 mid-gray">Dice for you</span>
-        <span class="f6 gray fw2 ttu tracked">Very nice dice!</span>
+<body id="dice-box">
+<div class="cf h-20">
+    <header class="dt dt--fixed tc pv3 pv3-ns">
+        <span class="f5 f4-ns fw6 mid-gray pa2">Dice for you</span>
+        <span class="f6 gray fw2 ttu tracked pa2">Very nice dice!</span>
     </header>
-    <main id="dice-box" class="cf w-100 h-80">
-        <div class="fl w-50 w-third-ns">
-            <div class="aspect-ratio aspect-ratio--1x1">
-                <div class="die-body db bg-center bg-blue washed-green cover aspect-ratio--object tc" id="d3">3</div>
-            </div>
+</div>
+    <div class="dt dt--fixed">
+        <div class="dtc tc pv5 pv6-ns bg-blue washed-green dim pointer">
+            <div class="die-body" id="d3">3</div>
         </div>
-        <div class="fl w-50 w-third-ns">
-            <div class="aspect-ratio aspect-ratio--1x1">
-                <div class="die-body db bg-center bg-light-green dark-gray cover aspect-ratio--object tc" id="d4">4</div>
-            </div>
+        <div class="dtc tc pv5 pv6-ns bg-light-green dark-gray dim pointer">
+            <div class="die-body" id="d4">4</div>
         </div>
-        <div class="fl w-50 w-third-ns">
-            <div class="aspect-ratio aspect-ratio--1x1">
-                <div class="die-body db bg-center bg-washed-red navy cover aspect-ratio--object tc" id="d6">6</div>
-            </div>
-        </div>
-        <div class="fl w-50 w-third-ns">
-            <div class="aspect-ratio aspect-ratio--1x1">
-                <div class="die-body db bg-center bg-light-purple washed-yellow cover aspect-ratio--object tc" id="d10">
-                    10
-                </div>
-            </div>
-        </div>
-        <div class="fl w-50 w-third-ns">
-            <div class="aspect-ratio aspect-ratio--1x1">
-                <div class="die-body db bg-center bg-light-gray cover aspect-ratio--object tc">
-                    <p class="f3 lh-title tc ttu tracked">Dice Result</p>
-                    <p id="dice-result" class="f1 lh-solid tc ttu tracked">---</p>
-                    <p id="sum-nums" class="f3 tc lh-solid ttu" value="0"></p>
-                </div>
-            </div>
-        </div>
-        <div class="fl w-50 w-third-ns">
-            <div class="aspect-ratio aspect-ratio--1x1">
-                <div class="die-body db bg-center bg-light-yellow dark-red cover aspect-ratio--object tc" id="d100">100
-                </div>
-            </div>
-        </div>
-    </main>
-    <footer class="cf h-10">
-        <div class="dice-modifier fl w-100 w-60-ns bg-near-white tc">
-            <a class="f5 link b hover-light-red no-underline black dib ph3 pv3" id="double">Double</a>
-            <a class="f5 link b hover-light-blue no-underline black dib ph3 pv3" id="triple">Triple</a>
-            <a class="f5 link b hover-light-red no-underline black dib ph2 pv3" id="penalty">Penalty</a>
-            <a class="f5 link b hover-light-blue no-underline black dib ph3 pv3" id="bonus">Bonus</a>
-        </div>
-        <div class="dice-modifier fl w-100 w-40-ns bg-near-white tc">
-            <a class="f5 link b hover-light-green no-underline black dib ph2 pv3" id="game-mode">Game Mode</a>
-            <a class="f5 link b hover-light-green no-underline black dib ph3 pv3" id="add-mode">Add Mode</a>
-        </div>
-    </footer>
-
-    <div hidden>
-        <p>
-            Be sure to checkout
-            <a href="http://blog.andyjiang.com/cthulhu-investigator-generator/">
-                the companion Investigator stats generator
-            </a>
-            by my dear froend
-            <span id="sp">Sp</span>
-            Andy
-            <span id="jiang">
-        Jiang</span></p>
-        <button name="stranger-things">click this button to see some stranger
-            things
-        </button>
-        <div id="stranger-things" hidden>
-            <button>NOPE close this right now</button>
-            <p>HtmL is funny cuz you can do what every ou want basically. Welcome to the internet feindo!
-                <a href="404.html" id="404">Here's a Link to a 404 page.</a>
-            <p>
-                In my CSC 111 class in 2004 or 5...? it was at Missouri STate, for sure,
-                they were telling us to write emails to
-                people asking if you could linke ther site.
-                "Why don't you prrofa read your writing or correct those mistakes? I know you cn see the gren lines
-                there'
-                <br>
-                very squiggly in your text editor; it is 1475817941041 for crying out loud!
-                <br>
-                <br>
-                <label for="complaints">Please, fren! Enter your complaints here and</label>
-                <textarea id="complaints" placeholder="Really! Type anything your heart desires"
-                          spellcheck="true"></textarea>
-                <label for="complaints">Again you can do wahtever you want in 5RocksofHMTL!
-            <p></p>
-            <p>i appreciate art and grammar and communication and beautiful code and strange code processing engines</p>
-            <p>and most of all, i appreciate YOU, my friend</p>
+        <div class="dtc tc pv5 pv6-ns bg-light-purple washed-yellow dim pointer">
+            <div class="die-body" id="d6">6</div>
         </div>
     </div>
-</div>
-<!--JavaScripts-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="app.js"></script>
+    <div class="dt dt--fixed">
+        <div class="dtc tc pv5 pv6-ns bg-washed-red navy cover dim pointer">
+            <div class="die-body" id="d10">10</div>
+        </div>
+        <div class="dtc tc bg-light-gray">
+            <div class="dt dt--fixed tc ttu tracked">
+                <p class="lh-title">Dice Result</p>
+                <p id="dice-result" class="lh-solid">---</p>
+            </div>
+        </div>
+        <div class="dtc tc pv5 pv6-ns bg-light-yellow dark-red dim pointer">
+            <div class="die-body" id="d100">100</div>
+        </div>
+    </div>
+<footer class="cf h-10">
+    <div class="dice-modifier fl w-100 bg-near-white tc">
+        <a class="f5 link b pointer hover-light-green no-underline black dib ph3 pv3" id="double">Double</a>
+        <a class="f5 link b pointer hover-green no-underline black dib ph3 pv3" id="triple">Triple</a>
+        <a class="f5 link b pointer hover-light-red no-underline black dib ph3 pv3" id="penalty">Penalty</a>
+        <a class="f5 link b pointer hover-blue no-underline black dib ph3 pv3" id="bonus">Bonus</a>
+    </div>
+
+    <!--todo - bring back Add Mode-->
+    <!--todo - add flashy stuff for Game Mode!-->
+    <!--<div class="dice-modifier fl w-100 w-40-ns bg-near-white tc">-->
+        <!--<a class="f5 link b pointer hover-light-green no-underline black dib ph3 pv3" id="game-mode">Game Mode</a>-->
+        <!--<a class="f5 link b pointer hover-light-green no-underline black dib ph3 pv3" id="add-mode">Add Mode</a>-->
+        <!--<div id="sum-nums" class="f5 ph3 tc lh-solid ttu" value="0"></div>-->
+    <!--</div>-->
+</footer>
+
+<script src="bundle.js"></script>
 </body>
 </html>
