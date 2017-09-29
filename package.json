@@ -1,0 +1,29 @@
+{
+  "name": "dice-for-you",
+  "version": "0.2.0",
+  "description": "roll some dice",
+  "keywords": [],
+  "license": "MIT",
+  "author": {
+    "name": "wesley",
+    "email": "robinson.wesleyd@gmail.com",
+    "url": "https://dice.wesley.tech/"
+  },
+  "now": {
+    "alias": "dice.wesley.tech",
+    "public": true
+  },
+  "scripts": {
+    "deploy": "now",
+    "build": "browserify main.js -o public/bundle.js -v",
+    "start": "http-server",
+    "dev": "watchify main.js -o public/bundle.js -v"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}
