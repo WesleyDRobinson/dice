@@ -1,6 +1,6 @@
 {
   "name": "dice-for-you",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "roll some dice",
   "keywords": [],
   "license": "MIT",
@@ -14,16 +14,19 @@
     "public": true
   },
   "scripts": {
-    "deploy": "now",
-    "build": "browserify main.js -o public/bundle.js -v",
-    "start": "http-server",
-    "dev": "watchify main.js -o public/bundle.js -v"
+    "build": "webpack main.js public/bundle.js",
+    "build:watch": "webpack -w -d main.js public/bundle.js",
+    "deploy": "npm run build && now",
+    "dev": "npm-run-all -p build:watch start",
+    "release": "now alias",
+    "start": "http-server"
   },
   "devDependencies": {
-    "browserify": "^14.4.0",
-    "watchify": "^3.9.0"
+    "npm-run-all": "^4.1.2"
   },
   "dependencies": {
-    "http-server": "^0.10.0"
+    "http-server": "^0.10.0",
+    "lodash.random": "^3.2.0",
+    "webpack": "^3.11.0"
   }
 }
