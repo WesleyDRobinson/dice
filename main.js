@@ -1,59 +1,77 @@
-function roll(sides) {
-    return Math.floor(Math.random() * sides) + 1
-}
+'use strict'
 
-// app event handlers
-function handleDice(e) {
-    e.preventDefault()
+import {random} from 'lodash'
 
-    let sides = parseInt(e.target.innerText)
-    let rollResult = roll(sides)
-    if (isNaN(rollResult)) return e;
+const handleDice = {
+    init: function() {
+        let diceBox = document.querySelectorAll('.die')
+        diceBox.forEach(die => {
+            die.addEventListener('click', this)
+            die.addEventListener('ontouchstart', this)
+        })
+    },
+    handleEvent: e => {
+        const roll = sides => random(1, sides)
 
-    // modifiers
-    let bonus = document.querySelector('#bonus').classList.contains('is-active')
-    let penalty = document.querySelector('#penalty').classList.contains('is-active')
-    let double = document.querySelector('#double').classList.contains('is-active')
-    let triple = document.querySelector('#triple').classList.contains('is-active')
-    let modified = false
+        let sides = parseInt(e.target.innerText)
+        let rollResult = roll(sides)
 
-    if (sides === 100) {
-        // replace the 10s die with either lower or higher of a second roll
-        let rollResult2 = (roll(10) * 10 + (rollResult % 10))
-        console.log(rollResult, rollResult2)
-        if (bonus) modified = Math.min(rollResult, rollResult2)
-        if (penalty) modified = Math.max(rollResult, rollResult2)
+        // gather modifiers
+        let bonus = document.querySelector('#bonus').getAttribute('data-active')
+        let penalty = document.querySelector('#penalty').getAttribute('data-active')
+        let double = document.querySelector('#double').getAttribute('data-active')
+        let triple = document.querySelector('#triple').getAttribute('data-active')
+        let addMode = document.querySelector('#add-mode').getAttribute('data-active')
+
+        let modified = false
+
+        if (sides === 100) {
+            // Call of Cthulu bonus/ penalty rolls
+            // replace the "10" position die with lower/ higher of a second d10 roll
+            let rollResult2 = ((roll(10) - 1) * 10 + (rollResult % 10))
+
+            if (bonus) modified = Math.min(rollResult, rollResult2)
+            if (penalty) modified = Math.max(rollResult, rollResult2)
+        }
+
+        if (double) modified = rollResult * 2
+        if (triple) modified = rollResult * 3
+
+        let diceRollResult = document.querySelector('#dice-result')
+
+        let current = parseInt(diceRollResult.firstChild.innerText)
+        if (addMode && current) modified = (modified || rollResult) + current
+
+        hyperHTML.bind(diceRollResult.firstElementChild)`<div class="f1 near-black">${modified || rollResult}</div> ${modified ? hyperHTML.wire()`<div class="f5 f4-ns black-40">original roll: ${rollResult}</div>` : ''}`
+        return e
     }
-    if (double) modified = rollResult *= 2
-    if (triple) modified = rollResult *= 3
-
-    // todo - bring back Add Mode
-    // let addMode = document.querySelector('#add-mode').classList.contains('is-active')
-    // let sumNums = document.querySelector('#sum-nums')
-    // if (addMode) sumNums.value = sumNums.value += rollResult
-    // sumNums.innerHTML = sumNums.value
-
-    let diceRollResult = document.querySelector('#dice-result')
-    diceRollResult.innerHTML = `${modified || rollResult}`
-
-    return e
 }
 
-function toggleActive(e) {
-    let targetEl = (e.target)
-    targetEl.classList.toggle('is-active')
+const toggleActive = {
+    init: function() {
+        let modifiers = document.getElementById('dice-modifiers')
+        modifiers.addEventListener('click', this)
+        modifiers.addEventListener('ontouchstart', this)
+    },
+    handleEvent: e => {
+        let targetEl = e.target
+        let active = targetEl.getAttribute('data-active')
 
-    targetEl.classList.forEach(bgColorSwap)
+        targetEl.setAttribute('data-active', active ? '' : true)
+        targetEl.classList.forEach(toggleColors)
 
-    function bgColorSwap(el) {
-        if (el.slice(0, 6) === 'hover-') {
-            targetEl.classList.toggle('bg-' + el.slice(6))
+        function toggleColors(cssClass) {
+            if (cssClass.slice(0, 6) === 'hover-') {
+                targetEl.classList.toggle('bg-' + cssClass.slice(6))
+            }
         }
     }
 }
 
-let diceModifier = document.querySelector('.dice-modifier')
-diceModifier.addEventListener('click', toggleActive)
+toggleActive.init()
+handleDice.init()
 
-let diceBox = document.querySelector('#dice-box')
-diceBox.addEventListener('click', handleDice)
+// for more info on EventListener Interface and handleEvent method:
+// WHATWG Spec: https://dom.spec.whatwg.org/#interface-eventtarget
+// blog1: https://medium.com/@WebReflection/dom-handleevent-a-cross-platform-standard-since-year-2000-5bf17287fd38
+// blog2: https://www.thecssninja.com/javascript/handleevent
