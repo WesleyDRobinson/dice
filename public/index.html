@@ -52,16 +52,26 @@
     </svg>
 </a>
 
-<!--contributions dropdown-->
+<!--about dropdown-->
 <a class="absolute top-0 left-0 pa3 pointer animated infinite" onmouseover="this.classList.add('wobble')"
    onmouseleave="this.classList.remove('wobble')"
    onclick="this.nextElementSibling.classList.remove('dn', 'slideOutUp')">
-    <span role="img" aria-label="Money" class="f2">💰</span>
+    <span role="img" aria-label="about dice" class="f2">🎲</span>
 </a>
+<!--dropdown internals-->
 <div class="dn w-100 z-1 fixed top-0 bg-light-red avenir animated slideInDown">
+    <!--close dropdown-->
     <span class="db pa3 f1 black-40 tc pointer animated infinite tada"
           onclick="this.parentElement.classList.add('slideOutUp')">^</span>
-    <div class="flex flex-wrap justify-around pl2 lh-copy pa2 white-80 bg-dark-gray">
+
+    <!--dice info-->
+    <p class="lh-copy center measure">
+        Tap or click to your heart's content. <br>
+        Built for fun and intended for Call of Cthulu role playing games. <br>
+        Bonus and Penalty modifiers only apply to d100 rolls. An extra d10 is rolled and added to the original one's place; the final result is the lower or higher value of original and modified.
+    </p>
+    <p class="tracked black-80 tc"> <span role="img" aria-label="Money" class="f2">💰</span> your patronage is appreciated!</p>
+    <div class="flex flex-wrap justify-around lh-copy mb3 pa2 white-80 bg-dark-gray">
         <span class="nowrap">BTC: <span class="f7 f6-ns white-60">13GJTQKn2cZ4y2bhQoaJ39VYqSbp74WKwS</span></span>
         <span class="nowrap">ETH: <span
                 class="f7 f6-ns white-60">0x86a8c0f28555e56FADDF55B7b0567B729Dfc4d9a</span></span>
@@ -70,7 +80,6 @@
         <span class="nowrap">USD: <span class="f7 f6-ns white-60"><a href="https://www.paypal.me/4wesley/20"
                                                                      class="link b tracked green">Paypal</a></span></span>
     </div>
-    <p class="tracked black-80 tc">your patronage is appreciated</p>
 </div>
 
 <script src="https://unpkg.com/hyperhtml@latest/min.js"></script>
