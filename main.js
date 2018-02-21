@@ -1,9 +1,9 @@
 'use strict'
 
-import {random} from 'lodash'
+import random from 'lodash.random'
 
-const handleDice = {
-    init: function() {
+const enableDiceRolling = {
+    init: function () {
         let diceBox = document.querySelectorAll('.die')
         diceBox.forEach(die => {
             die.addEventListener('click', this)
@@ -47,8 +47,8 @@ const handleDice = {
     }
 }
 
-const toggleActive = {
-    init: function() {
+const enableModifiers = {
+    init: function () {
         let modifiers = document.getElementById('dice-modifiers')
         modifiers.addEventListener('click', this)
         modifiers.addEventListener('ontouchstart', this)
@@ -68,8 +68,8 @@ const toggleActive = {
     }
 }
 
-toggleActive.init()
-handleDice.init()
+enableDiceRolling.init()
+enableModifiers.init()
 
 // for more info on EventListener Interface and handleEvent method:
 // WHATWG Spec: https://dom.spec.whatwg.org/#interface-eventtarget
