@@ -1,7 +1,5 @@
-### roll some dice
+![dice for you screenshot](./screenshot.png)
 
-latest:
-> https://dice.wesley.tech
+### Dice for You!
 
-former (firebase) deployment:
-> https://dice-eb7d3.firebaseapp.com/
+Find the latest deployment @ https://dice.wesley.tech
