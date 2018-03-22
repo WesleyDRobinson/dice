@@ -61,7 +61,7 @@
 <!--dropdown internals-->
 <div class="dn w-100 z-1 fixed top-0 bg-light-red avenir animated slideInDown">
     <!--close dropdown-->
-    <span class="db pa3 f1 black-40 tc pointer animated infinite tada"
+    <span class="db pa3 f1 black-40 tc pointer animated tada"
           onclick="this.parentElement.classList.add('slideOutUp')">^</span>
 
     <!--github corner, thanks to https://github.com/tholman/github-corners-->
@@ -97,5 +97,15 @@
 
 <script src="https://unpkg.com/hyperhtml@latest/min.js"></script>
 <script src="bundle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-68515019-4"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-68515019-4');
+</script>
 </body>
 </html>
