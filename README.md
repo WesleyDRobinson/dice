@@ -1,4 +1,4 @@
-![dice for you screenshot](./screenshot.png)
+[![dice for you screenshot](./screenshot.png)](https://dice.wesley.tech)
 
 ### Dice for You!
 
