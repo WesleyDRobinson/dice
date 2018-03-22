@@ -16,7 +16,7 @@
   "scripts": {
     "build": "webpack main.js public/bundle.js",
     "build:watch": "webpack -w -d main.js public/bundle.js",
-    "deploy": "npm run build && now",
+    "deploy": "npm run build && now ./public --static",
     "dev": "npm-run-all -p build:watch start",
     "release": "now alias",
     "start": "http-server"
